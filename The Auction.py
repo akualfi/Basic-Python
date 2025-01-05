@@ -1,5 +1,3 @@
-from art import logo
-print(logo)
 dictionary = {}
 
 def highest():
