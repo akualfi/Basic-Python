@@ -9,8 +9,6 @@ def choose(user,num):
         return num
 
 def system():
-    print(logo)
-
     yes = True
     while yes:
         chosen = input("encode or decode:\n").lower()
