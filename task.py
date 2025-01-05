@@ -25,27 +25,3 @@ for i in range(0,len(chosen)):
 print(password)
 # easy : play with string
 # hard : play with list and change it to list by for loop
-
-# random from source is inputted into a new list, and shuffle the new list.
-# Then, random choice every object in the new list to the password string " "
-
-"""
-pass_list = []
-
-for char in range(0, nr_letters):
-    pass_list.append(random.choice(letters))
-for char in range(0, nr_symbols):
-    pass_list.append(random.choice(symbols))
-for char in range(0, nr_numbers):
-    pass_list.append(random.choice(numbers))
-
-print(pass_list)
-random.shuffle(pass_list)
-print(pass_list)
-
-password = ""
-for char in range(0, len(pass_list)):
-    password += pass_list[char]
-
-print(f"Your password is : {password}")
-"""
