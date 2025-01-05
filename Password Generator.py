@@ -23,5 +23,3 @@ for i in range(0,len(chosen)):
     password += chosen[i]
 
 print(password)
-# easy : play with string
-# hard : play with list and change it to list by for loop
