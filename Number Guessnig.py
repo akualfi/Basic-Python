@@ -24,7 +24,7 @@ def compare(num1,num2):
 def game():
     print(logo)
     answer = random.randint(1,100)
-    print(f"Psst, {answer}")
+    #print(f"Psst, {answer}")
     choose = input("easy or hard? : ").lower()
     loop = level(choose)
 
