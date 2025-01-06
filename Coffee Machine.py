@@ -45,33 +45,42 @@ def use_resource(resource,key,coffee):
     else:
         MENU[coffee]["ingredients"][key] = 0
 
+def check(coffee):
+    for keyz in resources:
+        result = resources[keyz] - MENU[coffee]["ingredients"][keyz]
+        return result
+
 def machine():
     start = True
     while start:
-        user = input("What would you like? (espresso/latte/cappuccino / report): ")
+        user = input("What would you like? (espresso/latte/cappuccino): ")
 
         if user == "report":
             for key in resources:
                 print(f"{key} : {resources[key]}")
 
-        elif user in MENU:
-            print("Please input the coins")
-            quarters = int(input("how many quarters? : "))
-            dimes = int(input("how many dimes? : "))
-            nickels = int(input("how many nickels? : "))
-            pennies = int(input("how many pennies? : "))
-            change_f = float(change(quarters,dimes,nickels,pennies,MENU[user]["cost"]))
+        else:
+            if check(user) < 0:
+                print("Coffee is not available")
 
-            if change_f >= 0:
-                print(f"Here is ${change_f}in change.")
-                for keys in resources:
-                    use_resource(resources,keys,user)
-                print("Here is your latte ☕️. Enjoy!")
+            elif user in MENU:
+                print("Please input the coins")
+                quarters = int(input("how many quarters? : "))
+                dimes = int(input("how many dimes? : "))
+                nickels = int(input("how many nickels? : "))
+                pennies = int(input("how many pennies? : "))
+                change_f = float(change(quarters, dimes, nickels, pennies, MENU[user]["cost"]))
+
+                if change_f >= 0:
+                    print(f"Here is ${change_f}in change.")
+                    for keys in resources:
+                        use_resource(resources, keys, user)
+                    print("Here is your latte ☕️. Enjoy!")
+
+                else:
+                    print("Sorry that's not enough money. Money refunded.")
 
             else:
-                print("Sorry that's not enough money. Money refunded.")
-
-        else:
-            print("Please choose coffee in the list, Try again")
+                print("Please choose coffee in the list, Try again")
 
 machine()
