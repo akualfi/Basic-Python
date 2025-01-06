@@ -39,8 +39,11 @@ def change(quar,dim,nick,penn,cos):
     return quar*QUARTER + dim*DIME + nick*NICKEL + penn*PENNY - cos
 
 def use_resource(resource,key,coffee):
-    resource[key] -= MENU[coffee]["ingredients"][key]
-    return resource[key]
+    if key in MENU[coffee]["ingredients"]:
+        resource[key] -= MENU[coffee]["ingredients"][key]
+        return resource[key]
+    else:
+        MENU[coffee]["ingredients"][key] = 0
 
 def machine():
     start = True
@@ -62,7 +65,7 @@ def machine():
             if change_f >= 0:
                 print(f"Here is ${change_f}in change.")
                 for keys in resources:
-                    use_resource(resources, keys, user)
+                    use_resource(resources,keys,user)
                 print("Here is your latte ☕️. Enjoy!")
 
             else:
