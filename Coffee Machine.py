@@ -48,7 +48,7 @@ def use_resource(resource,key,coffee):
 def machine():
     start = True
     while start:
-        user = input("What would you like? (espresso/latte/cappuccino): ")
+        user = input("What would you like? (espresso/latte/cappuccino / report): ")
 
         if user == "report":
             for key in resources:
